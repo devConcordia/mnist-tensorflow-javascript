@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=yes" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Tester</title>
+		<style>
+		
+			* { padding:0; margin:0; }
+
+			.container { padding:10px 15%; display:block; }
+			.container canvas { margin:20px; box-shadow:2px 3px 15px #555; }
+			
+			.box-result {
+				display:inline-block;
+				margin:4px;
+				border-radius: 10px;
+				border:1px solid #7777;
+			}
+			
+			.box-result canvas,
+			.box-result pre { display:block; }
+			
+			.box-result pre { padding:4px; }
+			
+		</style>
+		<script src="../source/tfjs.min.js"></script>
+		<script type="module" src="main.mjs"></script>
+	</head>
+	<body>
+		<div id="d-input" class="container" >
+			<h1>Tester</h1>
+			<p>try to draw any digit on the following canvas</p>
+		</div>
+		<div id="d-output" class="container" ></div>
+	</body>
+</html>
