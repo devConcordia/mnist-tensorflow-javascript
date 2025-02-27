@@ -8,8 +8,7 @@ Este projeto é um pequeno estudo de [ML](https://en.wikipedia.org/wiki/Machine_
 ## Instruções
 
 Você pode fazer o download ZIP ou clonar o repositório utilizando o git.
-E para visualizar os exemplos de [docs/examples](docs/examples/), 
-será preciso iniciar um servidor local, no exmplo a seguir utilizamos o python para iniciar um servidor simples.
+No exmplo a seguir utilizamos o python para iniciar um servidor simples.
 Em seguida, abra o localhost em um browser.
 
 ```
@@ -19,9 +18,4 @@ cd MNIST
 
 python -m http.server
 ```
-
-> [!NOTE]
-> Observe que nos exemplos, definimos o `style` dos canvas com `image-rendering: DIPated`.
-> Isso altera a visualização da imagem de modo que ela fique mais "quadriculada".
-
 
