@@ -25,7 +25,7 @@ window.addEventListener('load', async function() {
 			input[i] = data[ i * 4 ];
 		
 		/// response is a array[10] 
-		let response = model.predict( tf.tensor2d( input, [ 1, 28 * 28 ]) ).dataSync();
+		let response = model.predict( tf.tensor( input, [ 1, 28, 28, 1 ]) ).dataSync();
 		
 		///
 		let closeValue = Math.max( ...response );

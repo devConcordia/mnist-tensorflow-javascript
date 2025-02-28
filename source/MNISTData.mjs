@@ -2,9 +2,6 @@
 import IDXFile from "./IDXFile.mjs";
 import FileLoader from "./FileLoader.mjs";
 
-///
-const IMAGE_SIZE = 28 * 28;
-const NUM_CLASSES = 10;
 
 ///
 const mnist_train_index = "/train-labels.idx1-ubyte";
@@ -85,8 +82,8 @@ export default class MNISTData {
 
 	nextBatch( batchSize, data, f_index ) {
 		
-		const batchImagesArray = new Uint8Array( batchSize * IMAGE_SIZE );
-		const batchLabelsArray = new Uint8Array( batchSize * NUM_CLASSES );
+		const batchImagesArray = new Uint8Array( batchSize * 28 * 28 );
+		const batchLabelsArray = new Uint8Array( batchSize * 10 );
 		
 		for( let i = 0; i < batchSize; i++ ) {
 		
@@ -94,28 +91,21 @@ export default class MNISTData {
 
 			const image = data[0].getValue( idx );
 			
-			let n = i * IMAGE_SIZE;
+			let n = i * 28 * 28;
 			
 			for( let j = 0; j < image.length; j++ )
 				batchImagesArray[ n + j ] = image[j];
 			
 			const label = data[1].getValue( idx );
 			
-			batchLabelsArray[ i * NUM_CLASSES + label ] = 1;
+			batchLabelsArray[ i * 10 + label ] = 1;
 			
 		}
 		
-	//	return [ batchImagesArray, batchLabelsArray ];
-		
 		return [ 
-			tf.tensor2d( batchImagesArray, [ batchSize, IMAGE_SIZE ]),
-			tf.tensor2d( batchLabelsArray, [ batchSize, NUM_CLASSES ])
+			tf.tensor( batchImagesArray, [ batchSize, 28, 28, 1 ]),
+			tf.tensor( batchLabelsArray, [ batchSize, 10 ])
 		];
-		
-	//	const xs = tf.tensor2d( batchImagesArray, [ batchSize, IMAGE_SIZE ]);
-	//	const labels = tf.tensor2d( batchLabelsArray, [ batchSize, NUM_CLASSES ]);
-	//
-	//	return { xs, labels };
 		
 	}
 

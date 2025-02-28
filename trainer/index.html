@@ -8,18 +8,40 @@
 		<meta name="author" content="">
 		
 		<style>
+		
+			* { padding:0; margin:0; }
 			
-			button { padding:5px 10px; margin:10px; }
+			.container { padding:10px 15%; display:block; }
+			.container p { padding:8px; }
+			.container button { padding:4px; }
+			.container canvas { margin:20px; box-shadow:2px 3px 15px #555; }
 			
-			canvas { margin:10px; box-shadow:1px 2px 7px #777; }
+			.box-result {
+				display:inline-block;
+				margin:4px;
+				border-radius: 10px;
+				border:1px solid #7777;
+			}
 			
-			p { padding:10px; }
+			.box-result canvas,
+			.box-result pre { display:block; }
+			
+			.box-result pre { padding:4px; }
 			
 		</style>
 		<script src="../source/tfjs.min.js"></script>
+		<script src="../source/tfjs-vis.umd.min.js"></script>
 		<script type="module" src="main.mjs"></script>
 	</head>
 	<body>
+		<div class="container" >
+			<h1>Trainer</h1>
+			<p id="p-message" >waiting for the page to be ready ...</p>
+			<button id="btn-train" >Train</button>
+			<button id="btn-test" >Test</button>
+			<button id="btn-save" >Save</button>
+			<button id="btn-view" >View</button>
+		</div>
 	</body>
 </html>
 
